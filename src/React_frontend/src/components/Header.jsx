@@ -5,8 +5,8 @@ function Header() {
   return (
     <header>
       <h1>
-        <HighlightIcon />
-        Keeper
+        {/* <HighlightIcon /> */}
+        Daily Glucose Tracking
       </h1>
     </header>
   );

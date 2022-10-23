@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
+import DataGrid from "./DataGrid";
 import { React_backend } from "../../../declarations/React_backend";
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
 
   function addNote(newNote) {
     setNotes(prevNotes => {
-      React_backend.createNote(newNote.title, newNote.content)
+      React_backend.createNote(newNote.readingLevel, newNote.entryNotes)
       return [newNote, ...prevNotes];
     });
   }
@@ -38,19 +39,23 @@ function App() {
     <div>
       <Header />
       <CreateArea onAdd={addNote} />
-      {notes.map((noteItem, index) => {
+      {/* {notes.map((noteItem, index) => {
         return (
           <Note
             key={index}
             id={index}
-            title={noteItem.title}
-            content={noteItem.content}
+            readingLevel={noteItem.readingLevel}
+            entryNotes={noteItem.entryNotes}
             onDelete={deleteNote}
           />
         );
-      })}
+      })} */}
+      <DataGrid />
       <Footer />
     </div>
+
+
+
   );
 }
 

@@ -7,8 +7,8 @@ function CreateArea(props) {
   const [isExpanded, setExpanded] = useState(false);
 
   const [note, setNote] = useState({
-    title: "",
-    content: ""
+    readingLevel: "",
+    entryNotes: ""
   });
 
   function handleChange(event) {
@@ -25,7 +25,7 @@ function CreateArea(props) {
   function submitNote(event) {
     props.onAdd(note);
     setNote({
-      title: "",
+      readingLevel: "",
       content: ""
     });
     event.preventDefault();
@@ -40,18 +40,18 @@ function CreateArea(props) {
       <form className="create-note">
         {isExpanded && (
           <input
-            name="title"
+            name="readingLevel"
             onChange={handleChange}
-            value={note.title}
+            value={note.readingLevel}
             placeholder="Title"
           />
         )}
 
         <textarea
-          name="content"
+          name="entryNotes"
           onClick={expand}
           onChange={handleChange}
-          value={note.content}
+          value={note.entryNotes}
           placeholder="Take a note..."
           rows={isExpanded ? 3 : 1}
         />
